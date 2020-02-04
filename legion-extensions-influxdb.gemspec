@@ -3,7 +3,7 @@
 require_relative 'lib/legion/extensions/influxdb/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'legion-extensions-influxdb'
+  spec.name          = 'lex-influxdb'
   spec.version       = Legion::Extensions::Influxdb::VERSION
   spec.authors       = ['Esity']
   spec.email         = ['matthewdiverson@gmail.com']
@@ -26,4 +26,6 @@ Gem::Specification.new do |spec|
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
+
+  spec.add_dependency 'influxdb'
 end

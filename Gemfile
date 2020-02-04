@@ -4,6 +4,4 @@ source 'https://rubygems.org'
 
 # Specify your gem's dependencies in legion-extensions-influxdb.gemspec
 gemspec
-
-gem 'rake', '~> 12.0'
-gem 'rspec', '~> 3.0'
+gem 'legion-extensions', path: '~/legion-io/legion-extensions'
