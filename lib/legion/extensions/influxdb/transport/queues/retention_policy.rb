@@ -1,16 +1,7 @@
-# frozen_string_literal: true
-
-module Legion
-  module Extensions
-    module Influxdb
-      module Transport
-        module Queues
-          class Retentionpolicy < Legion::Transport::Queue
-            def queue_name
-              'influxdb.retention_policy'
-            end
-          end
-        end
+module Legion::Extensions::Influxdb
+  module Transport
+    module Queues
+      class RetentionPolicy < Legion::Transport::Queue
       end
     end
   end

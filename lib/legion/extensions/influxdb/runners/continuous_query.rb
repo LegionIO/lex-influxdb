@@ -1,22 +1,16 @@
-# frozen_string_literal: true
+module Legion::Extensions::Influxdb
+  module Runners
+    module ContinuousQuery
+      def self.list(host: 'localhost', port: 8086, **_payload)
+        client = InfluxDB::Client.new(host: host, port: port)
+      end
 
-module Legion
-  module Extensions
-    module Influxdb
-      module Runners
-        module ContinuousQuery
-          def self.list(payload)
+      def self.create(name:, host: 'localhost', port: 8086, **_payload)
+        client = InfluxDB::Client.new(host: host, port: port)
+      end
 
-          end
-
-          def self.create(payload)
-
-          end
-
-          def self.delete(payload)
-
-          end
-        end
+      def self.delete(name:, host: 'localhost', port: 8086, **_payload)
+        client = InfluxDB::Client.new(host: host, port: port)
       end
     end
   end

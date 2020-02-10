@@ -1,27 +1,13 @@
-# frozen_string_literal: true
+module Legion::Extensions::Influxdb
+  module Runners
+    module RetentionPolicy
+      def self.create(payload); end
 
-module Legion
-  module Extensions
-    module Influxdb
-      module Runners
-        module RetentionPolicy
-          def self.create(payload)
+      def self.list(payload); end
 
-          end
+      def self.delete(payload); end
 
-          def self.list(payload)
-
-          end
-
-          def self.delete(payload)
-
-          end
-
-          def self.alter(payload)
-
-          end
-        end
-      end
+      def self.alter(payload); end
     end
   end
 end

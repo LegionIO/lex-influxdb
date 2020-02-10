@@ -1,19 +1,9 @@
-# frozen_string_literal: true
+module Legion::Extensions::Influxdb
+  module Runners
+    module Measurement
+      def self.list(payload); end
 
-module Legion
-  module Extensions
-    module Influxdb
-      module Runners
-        module Measurement
-          def self.list(payload)
-
-          end
-
-          def self.delete(payload)
-
-          end
-        end
-      end
+      def self.delete(payload); end
     end
   end
 end

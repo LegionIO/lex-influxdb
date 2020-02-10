@@ -1,6 +1,6 @@
 module Legion::Extensions::Influxdb
-  module Runners
-    module Writer
+  module Helpers
+    module Client
     end
   end
 end
