@@ -5,7 +5,7 @@ require 'influxdb'
 module Legion
   module Extensions
     module Influxdb
-      extend Legion::Extensions::Default
+      extend Legion::Extensions::Core
     end
   end
 end

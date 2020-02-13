@@ -14,16 +14,11 @@ module Legion::Extensions::Influxdb
       def self.list(host: 'localhost', port: 8086, **payload)
         client = InfluxDB::Client.new(host: payload[:host])
         { success: true, results: client.list_databases, count: client.list_databases.count }
-      rescue StandardError => e
-        Legion::Logging.error e.message
-        { success: false, error: e.message.to_s }
       end
 
       def self.field_keys(database: 'telegraf', host: 'localhost', port: 8086, **payload)
-        client = InfluxDB::Client.new(host: payload[:host], database: payload[:database])
+        client = InfluxDB::Client.new(host: payload[:host], port: port, database: database)
         { success: true, results: client.show_field_keys, count: client.show_field_keys.count }
-      rescue StandardError => e
-        { success: false, error: e.message.to_s }
       end
     end
   end
