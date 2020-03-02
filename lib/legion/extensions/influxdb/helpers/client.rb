@@ -1,8 +1,16 @@
 module Legion::Extensions::Influxdb
   module Helpers
     module Client
-      def self.client(**opts)
-        test = InfluxBD::Client.new(**opts)
+      def client(**opts)
+        @client ||= InfluxBD::Client.new
+      end
+
+      def host
+        'localhost'
+      end
+
+      def port
+        8086
       end
     end
   end
