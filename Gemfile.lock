@@ -1,0 +1,19 @@
+PATH
+  remote: .
+  specs:
+    lex-influxdb (0.1.1)
+      influxdb
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    influxdb (0.8.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  lex-influxdb!
+
+BUNDLED WITH
+   2.1.4

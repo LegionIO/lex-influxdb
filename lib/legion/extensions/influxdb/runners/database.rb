@@ -8,7 +8,7 @@ module Legion::Extensions::Influxdb
         Legion::Logging.unknown({ name: name, host: host, port: port, **payload })
         Legion::Logging.fatal client.create_database(name)
         { name: name, host: host, port: port, **payload }
-      rescue => e
+      rescue StandardError => e
         Legion::Logging.error e.message
         Legion::Logging.error e.backtrace
       end
