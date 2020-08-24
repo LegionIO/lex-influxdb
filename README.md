@@ -1,14 +1,13 @@
 # Legion::Extensions::Influxdb
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/legion/extensions/influxdb`. To experiment with that code, run `bin/console` for an interactive prompt.
-
+Used to connect Legion with InfluxDB
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'legion-extensions-influxdb'
+gem 'lex-influxdb'
 ```
 
 And then execute:
@@ -17,22 +16,22 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install legion-extensions-influxdb
+    $ gem install lex-influxdb
+
+## Adding to Legion
+You can manually install with a `gem install lex-influxdb` command or by adding it into your settings with something like this
+```json
+{
+  "extensions": {
+    "influxdb": {
+      "enabled": true, "workers": 1
+    }
+  }
+}
+```
 
 ## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/legion-extensions-influxdb.
-
+*To be updated*
 
 ## License
 
