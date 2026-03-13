@@ -1,38 +1,30 @@
-# Legion::Extensions::Influxdb
+# lex-influxdb
 
-Used to connect Legion with InfluxDB
+InfluxDB integration for [LegionIO](https://github.com/LegionIO/LegionIO). Read, write, and manage InfluxDB time-series databases.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'lex-influxdb'
+```bash
+gem install lex-influxdb
 ```
 
-And then execute:
+## Functions
 
-    $ bundle install
+- **Writer** - Write data points
+- **Database** - Database CRUD
+- **User** - User management
+- **RetentionPolicy** - Retention policy management
+- **ContinuousQuery** - Continuous query management
+- **Measurement** - Measurement queries
+- **Series** - Series queries
+- **Cluster** - Cluster info
 
-Or install it yourself as:
+## Requirements
 
-    $ gem install lex-influxdb
-
-## Adding to Legion
-You can manually install with a `gem install lex-influxdb` command or by adding it into your settings with something like this
-```json
-{
-  "extensions": {
-    "influxdb": {
-      "enabled": true, "workers": 1
-    }
-  }
-}
-```
-
-## Usage
-*To be updated*
+- Ruby >= 3.4
+- [LegionIO](https://github.com/LegionIO/LegionIO) framework
+- InfluxDB server
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+MIT

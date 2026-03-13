@@ -1,17 +1,23 @@
-module Legion::Extensions::Influxdb
-  module Helpers
-    module Client
-      def client(**_opts)
-        # @client ||= InfluxBD::Client.new
-        @client ||= InfluxBD::Client.new('esphome', { host: 'influx.home.whonodes.org', async: false })
-      end
+# frozen_string_literal: true
 
-      def host
-        'localhost'
-      end
+module Legion
+  module Extensions
+    module Influxdb
+      module Helpers
+        module Client
+          def client(**_opts)
+            # @client ||= InfluxBD::Client.new
+            @client ||= InfluxBD::Client.new('esphome', { host: 'influx.home.whonodes.org', async: false })
+          end
 
-      def port
-        8086
+          def host
+            'localhost'
+          end
+
+          def port
+            8086
+          end
+        end
       end
     end
   end

@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module Legion
   module Extensions
     module Influxdb
-      VERSION = '0.1.2'.freeze
+      VERSION = '0.1.2'
     end
   end
 end

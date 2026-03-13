@@ -1,6 +1,12 @@
-module Legion::Extensions::Influxdb
-  module Runners
-    module Series
+# frozen_string_literal: true
+
+module Legion
+  module Extensions
+    module Influxdb
+      module Runners
+        module Series
+        end
+      end
     end
   end
 end
