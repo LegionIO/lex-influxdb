@@ -44,7 +44,8 @@ Legion::Extensions::Influxdb
 
 ## Known Issues
 
-- `helpers/client.rb` has a hardcoded hostname (`influx.home.whonodes.org`) in the client initializer. Configuration should be driven by Legion settings (`host`, `port`).
+- `helpers/client.rb` has a hardcoded database name (`esphome`) and hostname (`influx.home.whonodes.org`) in the client initializer. Configuration should be driven by Legion settings (`host`, `port`, `database`).
+- The `Writer` runner bypasses `Helpers::Client` entirely, constructing `InfluxDB::Client` inline. The `write` method constructs a client but immediately discards it (returns `{}`). Likely incomplete.
 
 ## Development
 
