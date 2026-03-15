@@ -17,16 +17,16 @@ module Legion
             Legion::Logging.error e.backtrace
           end
 
-          def self.delete(name:, host: 'localhost', port: 8086, **payload)
+          def self.delete(_name:, _host: 'localhost', _port: 8086, **payload)
             client = InfluxDB::Client.new(host: payload[:host])
             client.delete_database(payload[:name])
           end
 
-          def self.list(host: 'localhost', port: 8086, **payload)
+          def self.list(_host: 'localhost', _port: 8086, **payload)
             InfluxDB::Client.new(host: payload[:host]).list_databases
           end
 
-          def self.field_keys(database: 'telegraf', host: 'localhost', port: 8086, **payload)
+          def self.field_keys(database: 'telegraf', _host: 'localhost', port: 8086, **payload)
             client = InfluxDB::Client.new(host: payload[:host], port: port, database: database)
             { results: client.show_field_keys, count: client.show_field_keys.count }
           end

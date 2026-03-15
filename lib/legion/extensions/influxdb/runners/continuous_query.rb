@@ -9,11 +9,11 @@ module Legion
             InfluxDB::Client.new(host: host, port: port)
           end
 
-          def self.create(name:, host: 'localhost', port: 8086, **_payload)
+          def self.create(_name:, host: 'localhost', port: 8086, **_payload)
             InfluxDB::Client.new(host: host, port: port)
           end
 
-          def self.delete(name:, host: 'localhost', port: 8086, **_payload)
+          def self.delete(_name:, host: 'localhost', port: 8086, **_payload)
             InfluxDB::Client.new(host: host, port: port)
           end
         end

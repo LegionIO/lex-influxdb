@@ -5,12 +5,18 @@ module Legion
     module Influxdb
       module Runners
         module Writer
-          def self.write(series:, tags:, values:, database:, host: 'localhost', port: 8086, **_opts)
+          def self.write(database:, **opts)
+            host = opts.fetch(:host, 'localhost')
+            port = opts.fetch(:port, 8086)
             InfluxDB::Client.new(database, host: host, port: port)
             {}
           end
 
-          def self.write_points(metrics:, host: 'localhost', port: 8086, database: 'telegraf', time_precision: 'ms', **_opts)
+          def self.write_points(metrics:, **opts)
+            host = opts.fetch(:host, 'localhost')
+            port = opts.fetch(:port, 8086)
+            database = opts.fetch(:database, 'telegraf')
+            time_precision = opts.fetch(:time_precision, 'ms')
             settings[:client] ||= InfluxDB::Client.new(database, host: host, port: port, async: false)
             metrics = Legion::JSON.load(metrics) if metrics.is_a? String
             if metrics[:timestamp].nil?
