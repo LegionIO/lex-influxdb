@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.2.0] - 2026-03-15
+
+### Added
+- Standalone `Client` class that includes all runners and delegates to `Helpers::Client`
+- Specs for `Helpers::Client` and `Client` class
+
+### Changed
+- `Helpers::Client#client` is now configurable via `host:`, `port:`, and `database:` kwargs
+- `Runners::Writer` now uses `Helpers::Client.client` instead of constructing `InfluxDB::Client` inline
+- `write` runner now accepts `series:` and `data:` and actually writes the data point
+
+### Fixed
+- Removed hardcoded `esphome` database name from `Helpers::Client`
+- Removed hardcoded `influx.home.whonodes.org` hostname from `Helpers::Client`
+- Fixed `InfluxBD` typo (was never a valid constant reference)
+
 ## [0.1.2] - 2026-03-13
 
 ### Added

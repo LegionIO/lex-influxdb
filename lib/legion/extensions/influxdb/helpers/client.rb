@@ -5,17 +5,10 @@ module Legion
     module Influxdb
       module Helpers
         module Client
-          def client(**_opts)
-            # @client ||= InfluxBD::Client.new
-            @client ||= InfluxBD::Client.new('esphome', { host: 'influx.home.whonodes.org', async: false })
-          end
+          module_function
 
-          def host
-            'localhost'
-          end
-
-          def port
-            8086
+          def client(host: 'localhost', port: 8086, database: nil, **)
+            InfluxDB::Client.new(database, host: host, port: port, async: false, **)
           end
         end
       end
