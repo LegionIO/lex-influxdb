@@ -15,6 +15,7 @@ Legion Extension that connects LegionIO to InfluxDB time-series databases. Provi
 
 ```
 Legion::Extensions::Influxdb
+├── Client                 # Standalone client class (includes all runners)
 ├── Runners/
 │   ├── Writer             # Write data points
 │   ├── Database           # Database CRUD
@@ -25,15 +26,28 @@ Legion::Extensions::Influxdb
 │   ├── Series             # Series queries
 │   └── Cluster            # Cluster info
 └── Helpers/
-    └── Client             # InfluxDB client (host: localhost, port: 8086)
+    └── Client             # InfluxDB client factory (host: localhost, port: 8086)
 ```
+
+## Standalone Usage
+
+`Legion::Extensions::Influxdb::Client` provides direct access to all runners without the Legion runtime:
+
+```ruby
+client = Legion::Extensions::Influxdb::Client.new(host: 'influx.example.com', database: 'mydb')
+client.write_data(...)
+client.list_databases
+```
+
+Constructor accepts `host:` (default `'localhost'`), `port:` (default `8086`), `database:` (default `nil`), and any extra kwargs passed through to `InfluxDB::Client`.
 
 ## Key Files
 
 | Path | Purpose |
 |------|---------|
 | `lib/legion/extensions/influxdb.rb` | Entry point, extension registration |
-| `lib/legion/extensions/influxdb/helpers/client.rb` | InfluxDB client helper (hardcoded host in client - needs config) |
+| `lib/legion/extensions/influxdb/client.rb` | Standalone client class, includes all runners |
+| `lib/legion/extensions/influxdb/helpers/client.rb` | InfluxDB client factory (`module_function`; configurable host/port/database) |
 | `lib/legion/extensions/influxdb/runners/` | All runners |
 
 ## Dependencies
@@ -42,10 +56,11 @@ Legion::Extensions::Influxdb
 |-----|---------|
 | `influxdb` | InfluxDB Ruby client |
 
-## Known Issues
+## Version
 
-- `helpers/client.rb` has a hardcoded database name (`esphome`) and hostname (`influx.home.whonodes.org`) in the client initializer. Configuration should be driven by Legion settings (`host`, `port`, `database`).
-- The `Writer` runner bypasses `Helpers::Client` entirely, constructing `InfluxDB::Client` inline. The `write` method constructs a client but immediately discards it (returns `{}`). Likely incomplete.
+Current version: **0.2.0**
+
+- v0.2.0: Fixed hardcoded hostname (`influx.home.whonodes.org`) and database name (`esphome`) in `Helpers::Client`. Both are now configurable kwargs with safe defaults (`host: 'localhost'`, `database: nil`). Standalone `Client` class added.
 
 ## Development
 
