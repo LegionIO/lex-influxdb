@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    lex-influxdb (0.1.2)
+    lex-influxdb (0.2.0)
       influxdb
 
 GEM
