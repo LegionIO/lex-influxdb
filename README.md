@@ -14,6 +14,23 @@ Or add to your Gemfile:
 gem 'lex-influxdb'
 ```
 
+## Standalone Usage
+
+```ruby
+require 'legion/extensions/influxdb'
+
+client = Legion::Extensions::Influxdb::Client.new(
+  host: 'influx.example.com',
+  port: 8086,
+  database: 'mydb'
+)
+
+client.list_databases
+client.write_data(series: 'cpu', values: { value: 0.5 })
+```
+
+Constructor accepts `host:` (default `'localhost'`), `port:` (default `8086`), `database:` (default `nil`), and any extra kwargs passed through to `InfluxDB::Client`.
+
 ## Runners
 
 | Runner | Operations |
@@ -30,8 +47,8 @@ gem 'lex-influxdb'
 ## Requirements
 
 - Ruby >= 3.4
-- [LegionIO](https://github.com/LegionIO/LegionIO) framework
 - InfluxDB server (default: localhost:8086)
+- [LegionIO](https://github.com/LegionIO/LegionIO) framework (optional for standalone client)
 
 ## License
 

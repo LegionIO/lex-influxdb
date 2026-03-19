@@ -64,6 +64,8 @@ Current version: **0.2.0**
 
 ## Development
 
+14 specs total.
+
 ```bash
 bundle install
 bundle exec rspec
