@@ -10,6 +10,7 @@ Legion Extension that connects LegionIO to InfluxDB time-series databases. Provi
 
 **GitHub**: https://github.com/LegionIO/lex-influxdb
 **License**: MIT
+**Version**: 0.2.0
 
 ## Architecture
 
@@ -64,7 +65,7 @@ Current version: **0.2.0**
 
 ## Development
 
-14 specs total.
+14 specs total. Note: the gemspec file is named `legion-extensions-influxdb.gemspec` (legacy naming) but the gem name is `lex-influxdb`.
 
 ```bash
 bundle install
