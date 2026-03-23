@@ -21,7 +21,7 @@ module Legion
             port = opts.fetch(:port, 8086)
             time_precision = opts.fetch(:time_precision, 'ms')
             extra = opts.except(:database, :host, :port, :time_precision)
-            metrics = Legion::JSON.load(metrics) if metrics.is_a?(String)
+            metrics = json_load(metrics) if metrics.is_a?(String)
             if metrics[:timestamp].nil?
               metrics[:timestamp] = Time.now.to_i
               time_precision = 's'

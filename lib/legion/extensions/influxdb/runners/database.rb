@@ -5,16 +5,17 @@ module Legion
     module Influxdb
       module Runners
         module Database
+          include Legion::Extensions::Helpers::Lex
+
           def self.create(name:, host: 'localhost', port: 8086, **payload)
-            # client = InfluxDB::Client.new(host: host, port: port)
             require 'influxdb'
             client = InfluxDB::Client.new
-            Legion::Logging.unknown({ name: name, host: host, port: port, **payload })
-            Legion::Logging.fatal client.create_database(name)
+            log.unknown({ name: name, host: host, port: port, **payload })
+            log.fatal client.create_database(name)
             { name: name, host: host, port: port, **payload }
           rescue StandardError => e
-            Legion::Logging.error e.message
-            Legion::Logging.error e.backtrace
+            log.error e.message
+            log.error e.backtrace
           end
 
           def self.delete(_name:, _host: 'localhost', _port: 8086, **payload)
