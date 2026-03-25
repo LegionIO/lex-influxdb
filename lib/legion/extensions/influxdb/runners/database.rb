@@ -10,7 +10,7 @@ module Legion
           def self.create(name:, host: 'localhost', port: 8086, **payload)
             require 'influxdb'
             client = InfluxDB::Client.new
-            log.unknown({ name: name, host: host, port: port, **payload })
+            log.info({ name: name, host: host, port: port, **payload })
             log.fatal client.create_database(name)
             { name: name, host: host, port: port, **payload }
           rescue StandardError => e
