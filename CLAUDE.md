@@ -10,7 +10,7 @@ Legion Extension that connects LegionIO to InfluxDB time-series databases. Provi
 
 **GitHub**: https://github.com/LegionIO/lex-influxdb
 **License**: MIT
-**Version**: 0.2.0
+**Version**: 0.2.1
 
 ## Architecture
 
@@ -57,11 +57,10 @@ Constructor accepts `host:` (default `'localhost'`), `port:` (default `8086`), `
 |-----|---------|
 | `influxdb` | InfluxDB Ruby client |
 
-## Version
+## Version Notes
 
-Current version: **0.2.0**
-
-- v0.2.0: Fixed hardcoded hostname (`influx.home.whonodes.org`) and database name (`esphome`) in `Helpers::Client`. Both are now configurable kwargs with safe defaults (`host: 'localhost'`, `database: nil`). Standalone `Client` class added.
+- v0.2.1: Added Legion sub-gems as runtime dependencies; replaced direct Legion::Logging/Legion::JSON calls with injected helpers in runners.
+- v0.2.0: Fixed hardcoded hostname and database name in `Helpers::Client`. Both now configurable kwargs with safe defaults. Standalone `Client` class added.
 
 ## Development
 
